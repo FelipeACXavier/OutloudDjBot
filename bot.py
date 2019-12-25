@@ -14,6 +14,8 @@ import signal, os, sys
 
 WINDOW_SIZE = "1920,1080"
 
+webdriverPath = "Add webdriver path"
+
 def parseNames():
     nameslist = []
     with open("namescsv.csv") as file:
@@ -41,7 +43,7 @@ def startBrowser(website):
     chrome_options.add_argument("--incognito")
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
-    driver = webdriver.Chrome(executable_path=r'/home/felipe_xavier/Projects/OutloudBot/chromedriver', chrome_options=chrome_options)#Firefox(executable_path=r'/home/felipe_xavier/Projects/OutloudBot/geckodriver', firefox_profile=profile)
+    driver = webdriver.Chrome(executable_path=webdriverPath, chrome_options=chrome_options)
     driver.get(website)
     time.sleep(3)
     return driver
